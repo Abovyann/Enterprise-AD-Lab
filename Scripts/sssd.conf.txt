@@ -1,0 +1,17 @@
+[sssd]
+domains = company.local
+config_file_version = 2
+services = nss, pam
+
+[domain/company.local]
+default_shell = /bin/bash
+krb5_store_password_if_offline = True
+cache_credentials = True
+krb5_realm = COMPANY.LOCAL
+realmd_tags = manages-system joined-with-adcli
+id_provider = ad
+fallback_homedir = /home/%u@%d
+ad_domain = company.local
+use_fully_qualified_names = True
+ldap_id_mapping = True
+access_provider = ad
